@@ -10,8 +10,7 @@ import (
 func TestPrinterHelloWorld(t *testing.T) {
 	t.Parallel()
 	buf := new(bytes.Buffer)
-	p := greeter.NewPrinter()
-	p.Output = buf
+	p := greeter.NewPrinter(greeter.WithOutput(buf))
 
 	p.Hello("World")
 
