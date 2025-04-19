@@ -7,11 +7,14 @@ import (
 	"github.com/arth-go/mono/greeter"
 )
 
-func TestHelloPrintsTheMessage(t *testing.T) {
+func TestPrinterHelloWorld(t *testing.T) {
 	t.Parallel()
 	buf := new(bytes.Buffer)
+	p := greeter.NewPrinter()
+	p.Output = buf
 
-	greeter.HelloTo(buf, "World")
+	p.Hello("World")
+
 	want := "Hello, World\n"
 	got := buf.String()
 	if want != got {
